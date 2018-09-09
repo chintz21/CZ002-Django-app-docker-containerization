@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    command: bash -c "python helloworld/manage.py makemigrations && python helloworld/manage.py migrate && python helloworld/manage.py runserver 0.0.0.0:80"
+    container_name: hellodjangoo
+    volumes:
+      - .:/hello_django1
+#    depends_on:
+#      - db
